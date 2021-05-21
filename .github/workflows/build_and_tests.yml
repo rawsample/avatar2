@@ -22,7 +22,8 @@ jobs:
         runs-on: ubuntu-20.04
         needs: [build_container]
         steps:
-       
+            - run: docker run -v /home/travis/build/$TRAVIS_REPO_SLUG:/avatar2 --name avatar2 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -dit avatar2
+            - run: docker exec avatar2 pip3 install nose
             - run: docker exec avatar2 bash -c 'cd avatar2/ && nosetests ./tests/test_remote_memoryprotocol.py'
             - run: docker exec avatar2 bash -c 'cd avatar2/ && nosetests ./tests/test_gdbprotocol.py'
             - run: docker exec avatar2 bash -c 'cd avatar2/ && nosetests ./tests/test_gdbplugin.py'
