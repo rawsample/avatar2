@@ -10,5 +10,10 @@ jobs:
 
             - name: Generate Dockerfile
               run: python3 ${{ github.workspace }}/generate_dockerfile.py --endpoint_list avatar-qemu panda --qemu_targets arm-softmmu mips-softmmu
-              #- name: Build docker container
+
+            - name: Build docker container
+              run: docker build --tag avatar2 .
+
+            - name: 
+              run: docker run --rm avatar2 "ls"
 
