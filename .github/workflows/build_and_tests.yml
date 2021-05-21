@@ -1,7 +1,5 @@
 name: Build and tests
-
 on: [push]
-
 jobs:
     build_container:
         if: github.repository == 'rawsample/avatar2'
@@ -12,5 +10,5 @@ jobs:
 
             - name: Generate Dockerfile
               run: python3 ${{ github.workspace }}/generate_dockerfile.py --endpoint_list avatar-qemu panda --qemu_targets arm-softmmu mips-softmmu
-            - name: Build docker container
+              #- name: Build docker container
 
