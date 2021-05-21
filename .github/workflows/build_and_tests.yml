@@ -37,11 +37,10 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: docker-artifact
-                  path: avatar2-image.tar.gz
             - name: Load docker image
               run: |
-                  tar xvf avatar2-image.tar.gz avatar2-image.tar
-                  docker load --input avatar2-docker-image.tar
+                  tar zxvf avatar2-image.tar.gz
+                  docker load --input avatar2-image.tar
                   docker image ls
 
             - name: Run avatar2 container
