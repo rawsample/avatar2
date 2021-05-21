@@ -25,7 +25,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: docker-artifact
-                  path: avatar2-docker-image.tar
+                  path: avatar2-image.tar.gz
                   retention-days: 1
 
     tests:
@@ -37,7 +37,7 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: docker-artifact
-                  path: avatar2-docker-image.tar
+                  path: avatar2-image.tar.gz
             - name: Load docker image
               run: |
                   tar xvf avatar2-image.tar.gz avatar2-image.tar
