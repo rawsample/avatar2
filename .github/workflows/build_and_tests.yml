@@ -15,7 +15,7 @@ jobs:
               run: docker build --tag avatar2 .
 
             - name: hello_world
-              run: docker exec avatar2 bash -c 'cd avatar2/ && python3 ./tests/hello_world.py'
+              run: docker run --rm avatar2 bash -c 'cd avatar2/ && python3 ./tests/hello_world.py'
 
             - name: Save and compress docker image
               run: |
