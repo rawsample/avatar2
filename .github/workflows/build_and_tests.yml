@@ -37,11 +37,11 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: docker-artifact
-                  path: ${{ github.workspace }}/avatar2-docker-image.tar
+                  path: avatar2-docker-image.tar
             - name: Load docker image
               run: |
                   tar xvf avatar2-image.tar.gz avatar2-image.tar
-                  docker load --input ${{ github.workspace }}/avatar2-docker-image.tar
+                  docker load --input avatar2-docker-image.tar
                   docker image ls
 
             - name: Run avatar2 container
