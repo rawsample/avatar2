@@ -75,12 +75,12 @@ jobs:
               run: docker exec avatar2 bash -c 'cd avatar2/ && AVATAR2_GDB_EXECUTABLE=gdb-multiarch AVATAR2_ARCH=MIPS AVATAR2_QEMU_EXECUTABLE=panda-system-mips nosetests ./tests/test_qemutarget.py'
             - name: test_pyperipheral
               run: docker exec avatar2 bash -c 'cd avatar2/ && AVATAR2_GDB_EXECUTABLE=gdb-multiarch AVATAR2_QEMU_EXECUTABLE=panda-system-arm nosetests ./tests/pyperipheral/test_pyperipheral.py'
-            - name: smoke: panda_thumb
+            - name: smoke panda_thumb
               run: docker exec avatar2 bash -c 'cd avatar2/ && AVATAR2_GDB_EXECUTABLE=gdb-multiarch AVATAR2_QEMU_EXECUTABLE=panda-system-arm AVATAR2_PANDA_EXECUTABLE=panda-system-arm nosetests ./tests/smoke/panda_thumb.py'
             - name: test_pypandatarget
               run: docker exec avatar2 bash -c 'cd avatar2/ && AVATAR2_GDB_EXECUTABLE=gdb-multiarch AVATAR2_QEMU_EXECUTABLE=panda-system-arm AVATAR2_PANDA_EXECUTABLE=panda-system-arm nosetests ./tests/test_pypandatarget.py'
 
-            - name: smoke: target_wait
+            - name: smoke target_wait
               run: docker exec avatar2 bash -c 'cd avatar2/ && nosetests --processes=-1 --process-timeout=20 ./tests/smoke/target_wait.py'
-            - name: smoke: 54_sync_hooks
+            - name: smoke 54_sync_hooks
               run: docker exec avatar2 bash -c 'cd avatar2/ && AVATAR2_GDB_EXECUTABLE=gdb-multiarch AVATAR2_QEMU_EXECUTABLE=panda-system-arm nosetests --processes=-1 --process-timeout=20 ./tests/smoke/54_sync_hooks.py'
