@@ -45,9 +45,9 @@ jobs:
                   docker image ls
 
             - name: Run avatar2 container
-                run: |
-                    docker run -v /home/travis/build/$TRAVIS_REPO_SLUG:/avatar2 --name avatar2 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -dit avatar2
-                    docker exec avatar2 pip3 install nose
+              run: |
+                  docker run -v /home/travis/build/$TRAVIS_REPO_SLUG:/avatar2 --name avatar2 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -dit avatar2
+                  docker exec avatar2 pip3 install nose
 
             - name: hello_world
               run: docker exec avatar2 bash -c 'cd avatar2/ && python3 ./tests/hello_world.py'
