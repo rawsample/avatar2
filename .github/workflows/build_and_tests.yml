@@ -47,7 +47,8 @@ jobs:
               run: |
                   docker run -v /home/travis/build/$TRAVIS_REPO_SLUG:/avatar2 --name avatar2 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -dit avatar2
                   docker exec avatar2 pip3 install nose
-                  docker exec avatar2 bash -c 'git clone --branch ${{ github.ref }} https://github.com/${{ github.repository }} /avatar2/'
+                  docker exec avatar2 bash -c 'git clone https://github.com/${{ github.repository }} /avatar2/'
+                  docker exec avatar2 bash -c "cd /avatar2/ && git checkout $(echo '${{ github.base_ref }}' | cut -d '/' -f3-)"
 
             - name: hello_world
               run: docker exec avatar2 bash -c 'cd /avatar2/ && python3 ./tests/hello_world.py'
