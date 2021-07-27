@@ -3,7 +3,7 @@ from sys import version_info
 
 
 setup(
-    name='avatar2',
+    name='avatar2-sampl',
     version='1.4.5',
     packages=['avatar2',
               'avatar2/archs',
