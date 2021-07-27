@@ -38,21 +38,21 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v2
 
-              #- name: Check out documentation repository
-              #  uses: actions/checkout@v2
-              #  with:
-              #      repository: rawsample/avatar2-docs
-              #      path: ../../avatar2-docs
-              #      token: ${{ secrets.PUSH_DOCS_TOKEN }}
+            - name: Check out documentation repository
+              uses: actions/checkout@v2
+              with:
+                  repository: rawsample/avatar2-docs
+                  path: docs/avatar2-docs
+                  token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
             - name: Install Sphinx
-              run: pip3 install Sphinx sphinx_rtd_theme
+              run: pip3 install Sphinx sphinx_rtd_theme intervaltree
 
             - name: Build documentation
               # Generated files are located at ../../avatar2-docs
               run: |
                   cd docs
-                  make html     
+                  make BUILDDIR=./avatar2-docs html
 
             - name: Publish documentation
               run: |
