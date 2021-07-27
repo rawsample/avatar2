@@ -69,9 +69,11 @@ jobs:
             - name: Publish documentation
               run: |
                   cd avatar2-docs
+                  git status
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git commit --all -m "Update documentation"
+                  git add -A
+                  git commit -m "Update documentation"
                   git push https:://$USERNAME:$REPO_KEY@github.com/rawsample/avatar2-docs.git
               env:
                   USERNAME: github-actions[bot]
