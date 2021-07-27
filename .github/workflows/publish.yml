@@ -52,7 +52,9 @@ jobs:
 
             - name: Build avatar2
               run: |
+                  ls
                   cd avatar2
+                  ls
                   python3 setup.py install
 
             - name: Build documentation
