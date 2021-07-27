@@ -38,13 +38,13 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v2
               with:
-                  avatar2/
+                  avatar2
 
             - name: Check out documentation repository
               uses: actions/checkout@v2
               with:
                   repository: rawsample/avatar2-docs
-                  path: avatar2-docs/
+                  path: avatar2-docs
                   token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
             - name: Install Sphinx
@@ -52,11 +52,11 @@ jobs:
 
             - name: Build avatar2
               run: |
-                  cd avatar2/
+                  cd avatar2
                   python3 setup.py install
 
             - name: Build documentation
-              # Generated files are located at ./avatar2-docs
+              # Generated files are located at avatar2-docs
               run: |
                   ls
                   cd avatar2/docs
