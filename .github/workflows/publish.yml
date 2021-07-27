@@ -53,15 +53,13 @@ jobs:
             - name: Build avatar2
               run: |
                   ls
-                  cd avatar2
-                  ls
                   python3 setup.py install
 
             - name: Build documentation
               # Generated files are located at avatar2-docs
               run: |
                   ls
-                  cd avatar2/docs
+                  cd docs
                   make html
 
             - name: Publish documentation
