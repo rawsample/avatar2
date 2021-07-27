@@ -75,7 +75,7 @@ jobs:
                   git add -A
                   git commit -m "Update documentation"
                   #git remote set-url origin https://github.com/rawsample/avatar2-docs
-                  git push --repo=https:://$USERNAME:$REPO_KEY@github.com/rawsample/avatar2-docs.git
+                  git push --repo=https://$USERNAME:$REPO_KEY@github.com/rawsample/avatar2-docs.git
               env:
                   REPO_KEY: ${{ secrets.PUSH_DOCS_TOKEN }}
                   USERNAME: github-actions[bot]
