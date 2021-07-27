@@ -38,13 +38,13 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v2
               with:
-                  path: avatar2
+                  avatar2/
 
             - name: Check out documentation repository
               uses: actions/checkout@v2
               with:
                   repository: rawsample/avatar2-docs
-                  path: docs/avatar2-docs
+                  path: avatar2-docs/
                   token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
             - name: Install Sphinx
@@ -52,19 +52,20 @@ jobs:
 
             - name: Build avatar2
               run: |
-                  cd ~/avatar2/
+                  cd avatar2/
                   python3 setup.py install
 
             - name: Build documentation
               # Generated files are located at ./avatar2-docs
               run: |
-                  cd ~/avatar2/docs
+                  ls
+                  cd avatar2/docs
                   make html
-                  ls ~/avatar2-docs
 
             - name: Publish documentation
               run: |
-                  cd ~/avatar2-docs
+                  ls
+                  cd avatar2-docs
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git commit --all -m "Update documentation"
