@@ -46,17 +46,21 @@ jobs:
                   token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
             - name: Install Sphinx
-              run: pip3 install Sphinx sphinx_rtd_theme intervaltree
+              run: pip3 install Sphinx sphinx_rtd_theme
+
+            - name: Build avatar2
+              run: python3 setup.py install
 
             - name: Build documentation
-              # Generated files are located at ../../avatar2-docs
+              # Generated files are located at ./avatar2-docs
               run: |
                   cd docs
                   make BUILDDIR=./avatar2-docs html
+                  ls avatar2-docs
 
             - name: Publish documentation
               run: |
-                  cd docs/avatar2-docs
+                  cd avatar2-docs
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   git commit --all -m "Update documentation"
