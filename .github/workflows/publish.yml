@@ -38,7 +38,7 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v2
               with:
-                  paths: avatar2
+                  path: avatar2
 
             - name: Check out documentation repository
               uses: actions/checkout@v2
