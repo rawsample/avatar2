@@ -38,12 +38,12 @@ jobs:
             - name: Check out repository code
               uses: actions/checkout@v2
 
-            - name: Check out documentation repository
-              uses: actions/checkout@v2
-              with:
-                  repository: rawsample/avatar2-docs
-                  path: ../../avatar2-docs
-                  token: ${{ secrets.PUSH_DOCS_TOKEN }}
+              #- name: Check out documentation repository
+              #  uses: actions/checkout@v2
+              #  with:
+              #      repository: rawsample/avatar2-docs
+              #      path: ../../avatar2-docs
+              #      token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
             - name: Install Sphinx
               run: pip3 install Sphinx sphinx_rtd_theme
