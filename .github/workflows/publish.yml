@@ -47,6 +47,11 @@ jobs:
                   path: avatar2-docs
                   token: ${{ secrets.PUSH_DOCS_TOKEN }}
 
+            - name: Setup python3
+              uses: actions/setup-python@v2
+              with:
+                  python-version: 3.8
+
             - name: Install Sphinx
               run: pip3 install Sphinx sphinx_rtd_theme
 
@@ -60,7 +65,7 @@ jobs:
               run: |
                   ls
                   cd docs
-                  make html
+                  make BUILDDIR=../avatar2-docs html
 
             - name: Publish documentation
               run: |
