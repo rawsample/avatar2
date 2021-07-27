@@ -57,19 +57,17 @@ jobs:
 
             - name: Build avatar2
               run: |
-                  ls
+                  cd avatar2
                   python3 setup.py install
 
             - name: Build documentation
               # Generated files are located at avatar2-docs
               run: |
-                  ls
-                  cd docs
-                  make BUILDDIR=../avatar2-docs html
+                  cd avatar2/docs
+                  make html
 
             - name: Publish documentation
               run: |
-                  ls
                   cd avatar2-docs
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
