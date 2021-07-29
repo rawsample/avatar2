@@ -1,4 +1,4 @@
-name: Publish to PyPI
+name: Publish on release
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
             - 'v*' 
 
 jobs:
-    build-n-publish:
+    publish_pypi:
         if: |
             github.repository == 'rawsample/avatar2' && startsWith(github.ref, 'refs/tags/v')
         runs-on: ubuntu-20.04
@@ -30,7 +30,7 @@ jobs:
                   #      repository_url: https://test.pypi.org/legacy/
 
 
-    docs:
+    publish_docs:
         if: |
             github.repository == 'rawsample/avatar2' && startsWith(github.ref, 'refs/tags/v')
         runs-on: ubuntu-20.04
@@ -61,21 +61,21 @@ jobs:
                   python3 setup.py install
 
             - name: Build documentation
-              # Generated files are located at avatar2-docs
               run: |
                   cd avatar2/docs
-                  make html
+                  make BUILDDIR=../../tmp_docs/ html
 
             - name: Publish documentation
               run: |
                   cd avatar2-docs
-                  git status
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git checkout gh-pages
+                  cp -r ../../tmp_docs/html .
+                  git status
                   git add -A
                   git commit -m "Update documentation"
-                  #git remote set-url origin https://github.com/rawsample/avatar2-docs
-                  git push --repo=https://$USERNAME:$REPO_KEY@github.com/rawsample/avatar2-docs.git
+                  git push https://$USERNAME:$REPO_KEY@github.com/rawsample/avatar2-docs.git
               env:
                   REPO_KEY: ${{ secrets.PUSH_DOCS_TOKEN }}
                   USERNAME: github-actions[bot]
