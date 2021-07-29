@@ -1,6 +1,6 @@
 cff-version: 1.1.0
 message: "If you use this software, please cite it as below."
-title: Avatar²: A Multi-target Orchestration Framework
+title: "Avatar²: A Multi-target Orchestration Framework"
 abstract: Avatar² is an orchestration framework designed to enable interoperability between different dynamic binary analysis frameworks, debuggers, emulators, and physical devices.
 repository: https://github.com/avatartwo/avatar2
 version: 1.4.7
@@ -17,7 +17,7 @@ contact:
       given-names: Paul
 references:
     - type: proceedings
-      title: Avatar²: A Multi-target Orchestration Platform
+      title: "Avatar²: A Multi-target Orchestration Platform"
       authors:
         - family-names: Muench
           given-names: Marius
