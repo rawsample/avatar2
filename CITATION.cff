@@ -1,0 +1,37 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+title: Avatar²: A Multi-target Orchestration Framework
+abstract: Avatar² is an orchestration framework designed to enable interoperability between different dynamic binary analysis frameworks, debuggers, emulators, and physical devices.
+repository: https://github.com/avatartwo/avatar2
+version: 1.4.7
+license: "apache-2.0"
+date-released: 2017-06-13
+keywords:
+    - binary-analysis
+    - embedded-systems
+    - reverse-engineering
+contact:
+    - family-names: Muench
+      given-names: Marius
+    - family-names: Olivier
+      given-names: Paul
+references:
+    - type: proceedings
+      title: Avatar²: A Multi-target Orchestration Platform
+      authors:
+        - family-names: Muench
+          given-names: Marius
+        - family-names: Nisi
+          given-names: Dario
+        - family-names: Francillon
+          given-names: Aurélien
+        - family-names: Balzarotti
+          given-names: Davide
+      year: 2018
+      month: 02
+      series: BAR 18
+      collection-title: Workshop on Binary Analysis Research  (colocated with NDSS Symposium)
+      location: San Diego (USA)
+      affiliations: EURECOM
+      doi: https://dx.doi.org/10.14722/bar.2018.23017
+
