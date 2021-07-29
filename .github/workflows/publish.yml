@@ -71,7 +71,7 @@ jobs:
                   cd avatar2-docs
                   git config --local user.name "github-actions[bot]"
                   git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  cp -r ../../tmp_docs/html .
+                  cp -r ../tmp_docs/html .
                   git status
                   git add -A
                   git commit -m "Update documentation"
